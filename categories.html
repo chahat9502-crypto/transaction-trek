@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyBlog - Categories</title>
+
+    <link rel="stylesheet" href="we.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-book-open"></i>
+            MyBlog
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="web.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+                <a href="categories.html" class="active">
+                    Categories
+                </a>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="admin-login.html">
+                    <i class="fa-solid fa-user-shield"></i>
+                    Admin
+                </a>
+            </li>
+        </ul>
+
+        <button
+            id="darkBtn"
+            type="button"
+            aria-label="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+    </nav>
+</header>
+
+<main>
+
+    <section class="categories-page">
+
+        <div class="page-heading">
+            <span class="date">Explore MyBlog</span>
+
+            <h1>Popular Categories</h1>
+
+            <p>
+                Choose a category to explore all articles
+                available on MyBlog.
+            </p>
+        </div>
+        <div class="category-list" id="categoryList"></div>
+
+    </section>
+
+    <section class="blogs category-blog-section">
+
+        <div class="category-results-heading">
+            <div>
+                <h2 id="categoryTitle">All Articles</h2>
+                <p id="categoryCount"></p>
+            </div>
+
+            <a href="categories.html" class="category-reset-btn">
+                <i class="fa-solid fa-layer-group"></i>
+                All Categories
+            </a>
+        </div>
+
+        <div
+            class="blog-container"
+            id="categoryArticles">
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>MyBlog</h3>
+
+            <p>
+                We share informative and interesting
+                articles about technology, education,
+                travel, programming, health and lifestyle.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="web.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="admin-login.html">
+                        <i class="fa-solid fa-user-shield"></i>
+                        Admin
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+
+            <div class="social-icons">
+
+                <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+                <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a
+                    href="https://x.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X / Twitter"
+                    title="X / Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        <p>© 2026 MyBlog | All Rights Reserved</p>
+    </div>
+
+</footer>
+
+<script src="we.js"></script>
+
+</body>
+</html>

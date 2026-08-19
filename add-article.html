@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Article - MyBlog Admin</title>
+
+    <!-- Your main CSS -->
+    <link rel="stylesheet" href="we.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #111827;
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+        ===================================================== */
+
+        .admin-page {
+            min-height: 100vh;
+
+            background: #f5f7fb;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .admin-header {
+
+            width: 100%;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            padding: 18px 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .admin-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 23px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+        }
+
+
+        .admin-logo i {
+            color: #60a5fa;
+        }
+
+
+        /* =====================================================
+           HEADER BUTTONS
+        ===================================================== */
+
+        .header-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .header-btn {
+
+            border: none;
+
+            text-decoration: none;
+
+            padding: 10px 16px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 7px;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .header-btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .dashboard-btn {
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+        }
+
+
+        .dashboard-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        .logout-btn {
+
+            background: #ef4444;
+
+            color: #ffffff;
+
+        }
+
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+
+
+        /* =====================================================
+           FORM CONTAINER
+        ===================================================== */
+
+        .form-container {
+
+            width: 100%;
+
+            max-width: 950px;
+
+            margin: 40px auto;
+
+            padding: 0 20px 50px;
+
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
+
+        .form-card {
+
+            width: 100%;
+
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.08);
+
+            transition:
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .form-title {
+
+            margin-bottom: 28px;
+
+            padding-bottom: 20px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+        }
+
+
+        .form-title h1 {
+
+            margin: 0 0 8px;
+
+            color: #111827;
+
+            font-size: 30px;
+
+            line-height: 1.2;
+
+        }
+
+
+        .form-title p {
+
+            margin: 0;
+
+            color: #6b7280;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           MESSAGE
+        ===================================================== */
+
+        .message {
+
+            display: none;
+
+            padding: 13px 15px;
+
+            border-radius: 9px;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            line-height: 1.5;
+
+        }
+
+
+        .success-message {
+
+            background: #dcfce7;
+
+            color: #166534;
+
+            border:
+                1px solid #bbf7d0;
+
+        }
+
+
+        .error-message {
+
+            background: #fee2e2;
+
+            color: #991b1b;
+
+            border:
+                1px solid #fecaca;
+
+        }
+
+
+        /* =====================================================
+           FORM GROUP
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 21px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #374151;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 12px 14px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #ffffff;
+
+            color: #111827;
+
+            font-size: 15px;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+
+        }
+
+
+        .form-group input {
+
+            min-height: 46px;
+
+        }
+
+
+        .form-group select {
+
+            min-height: 46px;
+
+            cursor: pointer;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 170px;
+
+            resize: vertical;
+
+            line-height: 1.7;
+
+        }
+
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+
+            color: #9ca3af;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37, 99, 235, 0.12);
+
+        }
+
+
+        /* =====================================================
+           TWO COLUMN
+        ===================================================== */
+
+        .two-column {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+
+        }
+
+
+        /* =====================================================
+           IMAGE HELP
+        ===================================================== */
+
+        .image-help {
+
+            margin-top: 7px;
+
+            color: #6b7280;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .image-help strong {
+
+            color: #2563eb;
+
+        }
+
+
+        /* =====================================================
+           IMAGE PREVIEW
+        ===================================================== */
+
+        .image-preview-box {
+
+            display: none;
+
+            margin-top: 14px;
+
+            padding: 15px;
+
+            border:
+                2px dashed #d1d5db;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            background: #f9fafb;
+
+        }
+
+
+        .image-preview-box.show {
+
+            display: block;
+
+        }
+
+
+        .image-preview-box img {
+
+            display: block;
+
+            width: 100%;
+
+            max-width: 450px;
+
+            height: 240px;
+
+            margin: auto;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+
+            background: #e5e7eb;
+
+        }
+
+
+        .preview-error {
+
+            display: none;
+
+            margin-top: 10px;
+
+            color: #dc2626;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .form-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 28px;
+
+            padding-top: 22px;
+
+            border-top:
+                1px solid #e5e7eb;
+
+        }
+
+
+        .save-btn,
+        .cancel-btn {
+
+            min-height: 48px;
+
+            border: none;
+
+            padding: 13px 22px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .save-btn {
+
+            flex: 1;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+        }
+
+
+        .save-btn:hover {
+
+            background: #1d4ed8;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .save-btn:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        .cancel-btn {
+
+            background: #e5e7eb;
+
+            color: #374151;
+
+        }
+
+
+        .cancel-btn:hover {
+
+            background: #d1d5db;
+
+        }
+
+
+        /* =====================================================
+           CHARACTER INFO
+        ===================================================== */
+
+        .field-info {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 5px;
+
+            font-size: 12px;
+
+            color: #9ca3af;
+
+        }
+
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
+
+        body.dark-mode {
+
+            background: #111827;
+
+            color: #f9fafb;
+
+        }
+
+
+        body.dark-mode .admin-page {
+
+            background: #111827;
+
+        }
+
+
+        body.dark-mode .form-card {
+
+            background: #1f2937;
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.30);
+
+        }
+
+
+        body.dark-mode .form-title {
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .form-title h1 {
+
+            color: #ffffff;
+
+        }
+
+
+        body.dark-mode .form-title p {
+
+            color: #9ca3af;
+
+        }
+
+
+        body.dark-mode .form-group label {
+
+            color: #e5e7eb;
+
+        }
+
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group select,
+        body.dark-mode .form-group textarea {
+
+            background: #374151;
+
+            color: #ffffff;
+
+            border-color: #4b5563;
+
+        }
+
+
+        body.dark-mode .form-group input::placeholder,
+        body.dark-mode .form-group textarea::placeholder {
+
+            color: #9ca3af;
+
+        }
+
+
+        body.dark-mode .image-help {
+
+            color: #9ca3af;
+
+        }
+
+
+        body.dark-mode .image-help strong {
+
+            color: #60a5fa;
+
+        }
+
+
+        body.dark-mode .image-preview-box {
+
+            background: #111827;
+
+            border-color: #4b5563;
+
+        }
+
+
+        body.dark-mode .form-buttons {
+
+            border-color: #374151;
+
+        }
+
+
+        body.dark-mode .cancel-btn {
+
+            background: #374151;
+
+            color: #ffffff;
+
+        }
+
+
+        body.dark-mode .cancel-btn:hover {
+
+            background: #4b5563;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .admin-header {
+
+                padding: 16px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+
+            .admin-logo {
+
+                justify-content: center;
+
+            }
+
+
+            .header-buttons {
+
+                width: 100%;
+
+            }
+
+
+            .header-btn {
+
+                flex: 1;
+
+            }
+
+
+            .form-container {
+
+                margin: 22px auto;
+
+                padding:
+                    0 12px
+                    35px;
+
+            }
+
+
+            .form-card {
+
+                padding: 22px 18px;
+
+                border-radius: 14px;
+
+            }
+
+
+            .two-column {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+
+            .form-title h1 {
+
+                font-size: 25px;
+
+            }
+
+
+            .form-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .save-btn,
+            .cancel-btn {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        @media (max-width: 430px) {
+
+            .admin-logo {
+
+                font-size: 19px;
+
+            }
+
+
+            .header-buttons {
+
+                flex-direction: column;
+
+            }
+
+
+            .form-card {
+
+                padding: 18px 14px;
+
+            }
+
+
+            .image-preview-box img {
+
+                height: 190px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="admin-page">
+
+    <header class="admin-header">
+
+
+        <div class="admin-logo">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>
+                MyBlog Admin
+            </span>
+
+        </div>
+
+
+        <div class="header-buttons">
+
+
+            <a
+                href="admin-dashboard.html"
+                class="header-btn dashboard-btn">
+
+                <i class="fa-solid fa-gauge"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <button
+                type="button"
+                id="logoutButton"
+                class="header-btn logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </header>
+
+    <main class="form-container">
+
+
+        <div class="form-card">
+            <div class="form-title">
+
+                <h1 id="formTitle">
+                    Add New Article
+                </h1>
+
+                <p id="pageSubtitle">
+                    Create a new article for your MyBlog website.
+                </p>
+
+            </div>
+
+            <div
+                id="successMessage"
+                class="message success-message">
+            </div>
+            <div
+                id="errorMessage"
+                class="message error-message">
+            </div>
+
+            <form id="articleForm"
+                  autocomplete="off">
+
+                <div class="form-group">
+
+
+                    <label for="articleTitle">
+
+                        Article Title *
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="articleTitle"
+                        name="title"
+                        maxlength="200"
+                        placeholder="Enter article title"
+                        required>
+
+
+                    <div class="field-info">
+
+                        <span>
+                            Give your article a clear title.
+                        </span>
+
+                        <span id="titleCount">
+                            0/200
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =============================================
+                     CATEGORY + DATE
+                ============================================== -->
+
+                <div class="two-column">
+
+
+                    <div class="form-group">
+
+
+                        <label for="articleCategory">
+
+                            Category *
+
+                        </label>
+
+
+                        <select
+                            id="articleCategory"
+                            name="category"
+                            required>
+
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+
+                            <option value="Technology">
+                                Technology
+                            </option>
+
+
+                            <option value="Programming">
+                                Programming
+                            </option>
+
+
+                            <option value="Travel">
+                                Travel
+                            </option>
+
+
+                            <option value="Lifestyle">
+                                Lifestyle
+                            </option>
+
+
+                            <option value="Education">
+                                Education
+                            </option>
+
+
+                            <option value="Business">
+                                Business
+                            </option>
+
+
+                            <option value="Health">
+                                Health
+                            </option>
+
+
+                            <option value="AI & Future">
+                                AI & Future
+                            </option>
+
+
+                            <option value="Sports">
+                                Sports
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+
+                        <label for="articleDate">
+
+                            Date *
+
+                        </label>
+
+
+                        <input
+                            type="date"
+                            id="articleDate"
+                            name="date"
+                            required>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+
+
+                    <label for="articleImage">
+
+                        Image Path / Online Image URL
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="articleImage"
+                        name="image"
+                        placeholder="image/blog18.jpg or https://example.com/image.jpg">
+
+
+                    <div class="image-help">
+
+                        Use a local path such as
+                        <strong>image/blog18.jpg</strong>
+                        or a direct online image URL.
+
+                    </div>
+
+                    <div
+                        id="imagePreviewBox"
+                        class="image-preview-box">
+
+
+                        <img
+                            id="imagePreview"
+                            src=""
+                            alt="Article Image Preview">
+
+
+                        <div
+                            id="previewError"
+                            class="preview-error">
+
+                            Image could not be loaded. Check the image path or URL.
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+
+
+                    <label for="articleDescription">
+
+                        Short Description *
+
+                    </label>
+
+
+                    <textarea
+                        id="articleDescription"
+                        name="description"
+                        maxlength="1000"
+                        placeholder="Write a short description for the article..."
+                        required></textarea>
+
+
+                    <div class="field-info">
+
+                        <span>
+                            This will appear on article cards.
+                        </span>
+
+                        <span id="descriptionCount">
+                            0/1000
+                        </span>
+
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+
+
+                    <label for="articleContent">
+
+                        Full Article *
+
+                    </label>
+
+
+                    <textarea
+                        id="articleContent"
+                        name="content"
+                        placeholder="Write the complete article here..."
+                        required></textarea>
+
+
+                    <div class="field-info">
+
+                        <span>
+                            Write the complete article content.
+                        </span>
+
+                        <span id="contentCount">
+                            0 characters
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+                <div class="form-buttons">
+
+
+                    <button
+                        type="button"
+                        id="cancelButton"
+                        class="cancel-btn">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Cancel
+
+                    </button>
+
+
+
+                    <button
+                        type="submit"
+                        id="saveButton"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        <span id="saveButtonText">
+                            Save Article
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+<script src="we.js"></script>
+
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+    const form =
+        document.getElementById("articleForm");
+
+    const titleInput =
+        document.getElementById("articleTitle");
+
+    const categoryInput =
+        document.getElementById("articleCategory");
+
+    const dateInput =
+        document.getElementById("articleDate");
+
+    const imageInput =
+        document.getElementById("articleImage");
+
+    const descriptionInput =
+        document.getElementById("articleDescription");
+
+    const contentInput =
+        document.getElementById("articleContent");
+
+    const saveButton =
+        document.getElementById("saveButton");
+
+    const saveButtonText =
+        document.getElementById("saveButtonText");
+
+    const cancelButton =
+        document.getElementById("cancelButton");
+
+    const logoutButton =
+        document.getElementById("logoutButton");
+
+    const formTitle =
+        document.getElementById("formTitle");
+
+    const pageSubtitle =
+        document.getElementById("pageSubtitle");
+
+    const successMessage =
+        document.getElementById("successMessage");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+    const previewBox =
+        document.getElementById("imagePreviewBox");
+
+    const preview =
+        document.getElementById("imagePreview");
+
+    const previewError =
+        document.getElementById("previewError");
+    let editArticleId =
+        localStorage.getItem("editArticleId");
+
+
+    if (
+        editArticleId !== null &&
+        editArticleId !== ""
+    ) {
+
+        editArticleId =
+            String(editArticleId);
+
+    } else {
+
+        editArticleId = null;
+
+    }
+
+    function getArticles() {
+
+        try {
+
+            const saved =
+                localStorage.getItem(
+                    "myBlogArticles"
+                );
+
+
+            if (!saved) {
+
+                return [];
+
+            }
+
+
+            const parsed =
+                JSON.parse(saved);
+
+
+            if (!Array.isArray(parsed)) {
+
+                return [];
+
+            }
+
+
+            return parsed;
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error reading articles:",
+                error
+            );
+
+            return [];
+
+        }
+
+    }
+    function saveArticles(articles) {
+
+        try {
+
+            localStorage.setItem(
+                "myBlogArticles",
+                JSON.stringify(articles)
+            );
+
+            return true;
+
+        }
+        catch (error) {
+
+            console.error(
+                "Error saving articles:",
+                error
+            );
+
+            return false;
+
+        }
+
+    }
+    function normalizeImagePath(image) {
+
+        if (!image) {
+
+            return "";
+
+        }
+
+
+        let path =
+            String(image).trim();
+
+
+        path =
+            path.replace(/\\/g, "/");
+
+        const imageIndex =
+            path.toLowerCase().indexOf("/image/");
+
+
+        if (imageIndex !== -1) {
+
+            path =
+                path.substring(
+                    imageIndex + 1
+                );
+
+        }
+
+        if (
+            path
+                .toLowerCase()
+                .startsWith("image/")
+        ) {
+
+            return path;
+
+        }
+
+        if (
+            path.startsWith("http://") ||
+            path.startsWith("https://") ||
+            path.startsWith("data:image/")
+        ) {
+
+            return path;
+
+        }
+
+
+        return path;
+
+    }
+    function generateArticleId() {
+
+        return (
+            Date.now().toString() +
+            "-" +
+            Math.random()
+                .toString(36)
+                .substring(2, 9)
+        );
+
+    }
+
+    function getTodayDate() {
+
+        const today =
+            new Date();
+
+
+        const year =
+            today.getFullYear();
+
+
+        const month =
+            String(
+                today.getMonth() + 1
+            ).padStart(2, "0");
+
+
+        const day =
+            String(
+                today.getDate()
+            ).padStart(2, "0");
+
+
+        return (
+            year +
+            "-" +
+            month +
+            "-" +
+            day
+        );
+
+    }
+    function escapeHTML(value) {
+
+        if (
+            value === undefined ||
+            value === null
+        ) {
+
+            return "";
+
+        }
+
+
+        return String(value)
+
+            .replace(/&/g, "&amp;")
+
+            .replace(/</g, "&lt;")
+
+            .replace(/>/g, "&gt;")
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+    function showSuccess(message) {
+
+        errorMessage.style.display =
+            "none";
+
+        successMessage.textContent =
+            message;
+
+        successMessage.style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+    function showError(message) {
+
+        successMessage.style.display =
+            "none";
+
+        errorMessage.textContent =
+            message;
+
+        errorMessage.style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+    function hideMessages() {
+
+        successMessage.style.display =
+            "none";
+
+        errorMessage.style.display =
+            "none";
+
+    }
+
+    function setupPageMode() {
+
+        if (!editArticleId) {
+
+            formTitle.textContent =
+                "Add New Article";
+
+            pageSubtitle.textContent =
+                "Create a new article for your MyBlog website.";
+
+            saveButtonText.textContent =
+                "Save Article";
+
+            return;
+
+        }
+
+
+        formTitle.textContent =
+            "Edit Article";
+
+        pageSubtitle.textContent =
+            "Update your existing MyBlog article.";
+
+        saveButtonText.textContent =
+            "Update Article";
+
+
+        const articles =
+            getArticles();
+
+
+        const article =
+            articles.find(
+                function (item) {
+
+                    return (
+                        String(item.id) ===
+                        String(editArticleId)
+                    );
+
+                }
+            );
+
+
+        if (!article) {
+
+            showError(
+                "The article you are trying to edit was not found."
+            );
+
+            editArticleId = null;
+
+            localStorage.removeItem(
+                "editArticleId"
+            );
+
+            formTitle.textContent =
+                "Add New Article";
+
+            pageSubtitle.textContent =
+                "Create a new article for your MyBlog website.";
+
+            saveButtonText.textContent =
+                "Save Article";
+
+            return;
+
+        }
+
+        titleInput.value =
+            article.title || "";
+
+
+        categoryInput.value =
+            article.category || "";
+
+
+        dateInput.value =
+            article.date || getTodayDate();
+
+
+        imageInput.value =
+            article.image || "";
+
+
+        descriptionInput.value =
+            article.description || "";
+
+
+        contentInput.value =
+            article.content || "";
+
+
+        updateCounters();
+
+
+        if (article.image) {
+
+            updateImagePreview(
+                article.image
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       IMAGE PREVIEW
+    ===================================================== */
+
+    function updateImagePreview(value) {
+
+        const imagePath =
+            normalizeImagePath(value);
+
+
+        previewError.style.display =
+            "none";
+
+
+        if (!imagePath) {
+
+            previewBox.classList.remove(
+                "show"
+            );
+
+            preview.src = "";
+
+            return;
+
+        }
+
+
+        previewBox.classList.add(
+            "show"
+        );
+
+
+        preview.onload =
+            function () {
+
+                previewError.style.display =
+                    "none";
+
+            };
+
+
+        preview.onerror =
+            function () {
+
+                previewError.style.display =
+                    "block";
+
+            };
+
+
+        preview.src =
+            imagePath;
+
+    }
+
+
+    imageInput.addEventListener(
+        "input",
+        function () {
+
+            updateImagePreview(
+                this.value.trim()
+            );
+
+        }
+    );
+    function updateCounters() {
+
+        const titleCount =
+            document.getElementById(
+                "titleCount"
+            );
+
+        const descriptionCount =
+            document.getElementById(
+                "descriptionCount"
+            );
+
+        const contentCount =
+            document.getElementById(
+                "contentCount"
+            );
+
+
+        if (titleCount) {
+
+            titleCount.textContent =
+                titleInput.value.length +
+                "/200";
+
+        }
+
+
+        if (descriptionCount) {
+
+            descriptionCount.textContent =
+                descriptionInput.value.length +
+                "/1000";
+
+        }
+
+
+        if (contentCount) {
+
+            contentCount.textContent =
+                contentInput.value.length +
+                " characters";
+
+        }
+
+    }
+
+
+    titleInput.addEventListener(
+        "input",
+        updateCounters
+    );
+
+
+    descriptionInput.addEventListener(
+        "input",
+        updateCounters
+    );
+
+
+    contentInput.addEventListener(
+        "input",
+        updateCounters
+    );
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            hideMessages();
+
+            const title =
+                titleInput.value.trim();
+
+
+            const category =
+                categoryInput.value.trim();
+
+
+            const date =
+                dateInput.value.trim();
+
+
+            const image =
+                normalizeImagePath(
+                    imageInput.value.trim()
+                );
+
+
+            const description =
+                descriptionInput.value.trim();
+
+
+            const content =
+                contentInput.value.trim();
+
+            if (!title) {
+
+                showError(
+                    "Please enter an article title."
+                );
+
+                titleInput.focus();
+
+                return;
+
+            }
+
+
+            if (title.length < 3) {
+
+                showError(
+                    "Article title must contain at least 3 characters."
+                );
+
+                titleInput.focus();
+
+                return;
+
+            }
+
+
+            if (!category) {
+
+                showError(
+                    "Please select an article category."
+                );
+
+                categoryInput.focus();
+
+                return;
+
+            }
+
+
+            if (!date) {
+
+                showError(
+                    "Please select an article date."
+                );
+
+                dateInput.focus();
+
+                return;
+
+            }
+
+
+            if (!description) {
+
+                showError(
+                    "Please write a short description."
+                );
+
+                descriptionInput.focus();
+
+                return;
+
+            }
+
+
+            if (description.length < 10) {
+
+                showError(
+                    "Short description should contain at least 10 characters."
+                );
+
+                descriptionInput.focus();
+
+                return;
+
+            }
+
+
+            if (!content) {
+
+                showError(
+                    "Please write the full article."
+                );
+
+                contentInput.focus();
+
+                return;
+
+            }
+
+
+            if (content.length < 30) {
+
+                showError(
+                    "Full article should contain at least 30 characters."
+                );
+
+                contentInput.focus();
+
+                return;
+
+            }
+            const articles =
+                getArticles();
+
+            if (editArticleId) {
+
+                const index =
+                    articles.findIndex(
+                        function (item) {
+
+                            return (
+                                String(item.id) ===
+                                String(editArticleId)
+                            );
+
+                        }
+                    );
+
+
+                if (index === -1) {
+
+                    showError(
+                        "Article could not be found. Please go back to Dashboard and try again."
+                    );
+
+                    return;
+
+                }
+
+                const oldArticle =
+                    articles[index];
+
+
+                articles[index] = {
+
+                    ...oldArticle,
+
+                    id:
+                        oldArticle.id,
+
+                    title:
+                        title,
+
+                    category:
+                        category,
+
+                    date:
+                        date,
+
+                    image:
+                        image,
+
+                    description:
+                        description,
+
+                    content:
+                        content,
+
+                    isAdminAdded:
+                        true,
+
+                    source:
+                        "admin",
+
+                    updatedAt:
+                        new Date().toISOString()
+
+                };
+
+
+                const saved =
+                    saveArticles(
+                        articles
+                    );
+
+
+                if (!saved) {
+
+                    showError(
+                        "Article could not be updated. Browser storage may be full."
+                    );
+
+                    return;
+
+                }
+
+
+                showSuccess(
+                    "Article updated successfully!"
+                );
+
+
+                saveButton.disabled =
+                    true;
+
+                saveButtonText.textContent =
+                    "Updated";
+
+                setTimeout(
+                    function () {
+
+                        localStorage.removeItem(
+                            "editArticleId"
+                        );
+
+                        window.location.href =
+                            "admin-dashboard.html";
+
+                    },
+                    900
+                );
+
+
+                return;
+
+            }
+
+            const newArticle = {
+
+                id:
+                    generateArticleId(),
+
+                title:
+                    title,
+
+                category:
+                    category,
+
+                date:
+                    date,
+
+                image:
+                    image,
+
+                description:
+                    description,
+
+                content:
+                    content,
+
+                isAdminAdded:
+                    true,
+
+                source:
+                    "admin",
+
+                createdAt:
+                    new Date().toISOString(),
+
+                updatedAt:
+                    new Date().toISOString()
+
+            };
+
+            articles.unshift(
+                newArticle
+            );
+
+
+            const saved =
+                saveArticles(
+                    articles
+                );
+
+
+            if (!saved) {
+
+                showError(
+                    "Article could not be saved. Browser storage may be full."
+                );
+
+                return;
+
+            }
+            showSuccess(
+                "Article added successfully!"
+            );
+
+
+            saveButton.disabled =
+                true;
+
+            saveButtonText.textContent =
+                "Saved";
+
+            setTimeout(
+                function () {
+
+                    window.location.href =
+                        "admin-dashboard.html";
+
+                },
+                900
+            );
+
+        }
+    );
+
+    cancelButton.addEventListener(
+        "click",
+        function () {
+
+            const hasData =
+                titleInput.value.trim() ||
+                descriptionInput.value.trim() ||
+                contentInput.value.trim();
+
+
+            if (hasData) {
+
+                const confirmed =
+                    confirm(
+                        "Are you sure you want to leave? Unsaved changes will be lost."
+                    );
+
+
+                if (!confirmed) {
+
+                    return;
+
+                }
+
+            }
+
+
+            localStorage.removeItem(
+                "editArticleId"
+            );
+
+
+            window.location.href =
+                "admin-dashboard.html";
+
+        }
+    );
+    logoutButton.addEventListener(
+        "click",
+        function () {
+
+            const confirmed =
+                confirm(
+                    "Are you sure you want to logout?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                "myBlogAdminLoggedIn"
+            );
+
+
+            localStorage.removeItem(
+                "editArticleId"
+            );
+
+
+            localStorage.removeItem(
+                "viewArticleId"
+            );
+
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+    );
+    function setupDarkMode() {
+
+        const saved =
+            localStorage.getItem(
+                "myBlogDarkMode"
+            );
+
+
+        if (saved === "true") {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+        }
+
+    }
+    function init() {
+
+        if (!editArticleId) {
+
+            dateInput.value =
+                getTodayDate();
+
+        }
+
+
+        setupDarkMode();
+
+
+        setupPageMode();
+
+
+        updateCounters();
+
+    }
+
+
+    init();
+
+
+})();
+
+</script>
+
+
+</body>
+
+</html>

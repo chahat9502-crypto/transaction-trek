@@ -1,0 +1,687 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="MyBlog - Read amazing articles about technology, programming, travel, lifestyle, education, business and health.">
+
+    <title>MyBlog - Home</title>
+    <link rel="stylesheet" href="we.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+
+<body>
+<header>
+
+<nav class="navbar">
+    <a href="web.html" class="logo">
+    <i class="fa-solid fa-book-open"></i>
+    <span>MyBlog</span>
+     </a>
+<ul class="nav-links">
+
+    <li>
+     <a href="web.html" class="active">
+        Home
+     </a>
+    </li>
+
+    <li>
+    <a href="about.html">
+        About
+    </a>
+    </li>
+
+    <li>
+    <a href="categories.html">
+        Categories
+    </a>
+    </li>
+
+    <li>
+     <a href="contact.html">
+    Contact
+    </a>
+    </li>
+
+    <li>
+    <a href="admin-login.html">
+    <i class="fa-solid fa-user-shield"></i>
+        Admin
+    </a>
+    </li>
+
+</ul>
+    <div class="nav-icons">
+    <input
+        type="search"
+        id="searchInput"
+        placeholder="Search articles..."
+        aria-label="Search articles">
+<button
+    id="darkBtn"
+    type="button"
+    aria-label="Toggle Dark Mode">
+    <i class="fa-solid fa-moon"></i>
+
+</button>
+<button
+    class="menu-toggle"
+    type="button"
+    aria-label="Open Menu">
+
+    <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+    </div>
+
+    </nav>
+
+    </header>
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-pen-nib"></i>
+                Welcome to MyBlog
+            </span>
+
+            <h1>
+                Read Amazing Stories Every Day
+            </h1>
+
+            <p>
+                Discover technology, travel, lifestyle, education,
+                coding, AI, and many more interesting blogs.
+                Explore useful ideas, inspiring stories and
+                helpful knowledge every day.
+            </p>
+
+            <a href="#blogs" class="btn">
+                <i class="fa-solid fa-book-open"></i>
+                Explore Blogs
+            </a>
+
+        </div>
+
+</section>
+<section class="featured">
+
+<h2>
+  Featured Articles
+</h2>
+
+<div class="featured-container">
+    <div class="featured-image">
+
+                <img
+                    src="image/blog6.jpg"
+                    alt="Future of Artificial Intelligence">
+
+            </div>
+            <div class="featured-text">
+
+                <span class="date">
+                    Featured Article
+                </span>
+
+                <h3>
+                    Future of Artificial Intelligence
+                </h3>
+
+                <p>
+                    Artificial Intelligence is changing our daily
+                    lives. From education to healthcare, AI helps
+                    people complete tasks faster and smarter.
+                    In the coming years, AI will become even more
+                    powerful, helping businesses, students, and
+                    professionals solve real-world problems
+                    efficiently.
+                </p>
+
+                <a
+                    href="article.html?id=ai-future-2"
+                    class="read-btn">
+
+                    Read More
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section class="categories">
+
+        <h2>
+            Popular Categories
+        </h2>
+
+        <p class="category-description">
+            Explore our most popular topics and discover
+            interesting articles from different categories.
+        </p>
+
+
+        <div class="category-list">
+
+            <a href="categories.html?category=Technology">
+                <i class="fa-solid fa-microchip"></i>
+                Technology
+            </a>
+
+            <a href="categories.html?category=Programming">
+                <i class="fa-solid fa-code"></i>
+                Programming
+            </a>
+
+            <a href="categories.html?category=Travel">
+                <i class="fa-solid fa-plane"></i>
+                Travel
+            </a>
+
+            <a href="categories.html?category=Lifestyle">
+                <i class="fa-solid fa-heart"></i>
+                Lifestyle
+            </a>
+
+            <a href="categories.html?category=Education">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Education
+            </a>
+
+            <a href="categories.html?category=Business">
+                <i class="fa-solid fa-briefcase"></i>
+                Business
+            </a>
+
+            <a href="categories.html?category=Health">
+                <i class="fa-solid fa-heart-pulse"></i>
+                Health
+            </a>
+
+            <a href="categories.html?category=Sports">
+                <i class="fa-solid fa-futbol"></i>
+                Sports
+            </a>
+
+        </div>
+
+    </section>
+    <section
+        class="blogs"
+        id="blogs">
+
+        <h2>
+            Latest Articles
+        </h2>
+
+
+        <div
+            class="blog-container"
+            id="blogContainer">
+            <article
+                class="blog-card"
+                data-article-id="html-css-js"
+                data-category="Programming">
+
+                <img
+                    src="image/blog1.jpg"
+                    alt="Why Learning HTML CSS JavaScript is Important"
+                    loading="lazy">
+
+                <div class="blog-content">
+
+                    <span class="date">
+                        12 August 2026
+                    </span>
+
+                    <h3>
+                        Why Learning HTML CSS JavaScript is Important
+                    </h3>
+
+                    <p>
+                        Learning HTML, CSS, and JavaScript helps you
+                        build professional websites. These technologies
+                        are the foundation of web development.
+                        With practice, you can create responsive
+                        websites, web applications, and interactive
+                        user interfaces that work on all devices.
+                    </p>
+
+                    <a
+                        href="article.html?id=html-css-js"
+                        class="read-btn">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+            <article
+                class="blog-card"
+                data-article-id="beautiful-places"
+                data-category="Travel">
+
+                <img
+                    src="image/blog2.jpg"
+                    alt="Top 10 Beautiful Places to Visit"
+                    loading="lazy">
+
+                <div class="blog-content">
+
+                    <span class="date">
+                        15 August 2026
+                    </span>
+
+                    <h3>
+                        Top 10 Beautiful Places to Visit
+                    </h3>
+
+                    <p>
+                        Traveling helps people relax, explore new
+                        cultures, meet new friends, and create
+                        unforgettable memories. Whether you enjoy
+                        mountains, beaches, or historical monuments,
+                        travel always offers exciting experiences.
+                    </p>
+
+                    <a
+                        href="article.html?id=beautiful-places"
+                        class="read-btn">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+            <article
+                class="blog-card"
+                data-article-id="healthy-lifestyle"
+                data-category="Health">
+
+                <img
+                    src="image/blog3.jpg"
+                    alt="Healthy Lifestyle Tips"
+                    loading="lazy">
+
+                <div class="blog-content">
+
+                    <span class="date">
+                        20 August 2026
+                    </span>
+
+                    <h3>
+                        Healthy Lifestyle Tips
+                    </h3>
+
+                    <p>
+                        A healthy lifestyle includes regular exercise,
+                        balanced nutrition, quality sleep, and stress
+                        management. Simple daily habits can improve
+                        your physical and mental health, making life
+                        happier and more productive.
+                    </p>
+
+                    <a
+                        href="article.html?id=healthy-lifestyle"
+                        class="read-btn">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+            <article
+                class="blog-card"
+                data-article-id="javascript"
+                data-category="Programming">
+
+                <img
+                    src="image/blog4.jpg"
+                    alt="Complete Guide to JavaScript"
+                    loading="lazy">
+
+                <div class="blog-content">
+
+                    <span class="date">
+                        25 August 2026
+                    </span>
+
+                    <h3>
+                        Complete Guide to JavaScript
+                    </h3>
+
+                    <p>
+                        JavaScript makes websites interactive and
+                        dynamic. It allows developers to create
+                        animations, forms, sliders, popups, and
+                        many advanced web features. Learning
+                        JavaScript is essential for every web developer.
+                    </p>
+
+                    <a
+                        href="article.html?id=javascript"
+                        class="read-btn">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+            <article
+                class="blog-card"
+                data-article-id="responsive-design"
+                data-category="Technology">
+
+                <img
+                    src="image/blog5.jpg"
+                    alt="Responsive Web Design Tips"
+                    loading="lazy">
+
+                <div class="blog-content">
+
+                    <span class="date">
+                        28 August 2026
+                    </span>
+
+                    <h3>
+                        Responsive Web Design Tips
+                    </h3>
+
+                    <p>
+                        Responsive websites automatically adjust
+                        to different screen sizes. Using Flexbox,
+                        Grid, and Media Queries helps create websites
+                        that work perfectly on mobiles, tablets,
+                        and desktops.
+                    </p>
+
+                    <a
+                        href="article.html?id=responsive-design"
+                        class="read-btn">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+            <article
+                class="blog-card"
+                data-article-id="ai-future-2"
+                data-category="Technology">
+
+                <img
+                    src="image/blog6.jpg"
+                    alt="Future of Artificial Intelligence"
+                    loading="lazy">
+
+                <div class="blog-content">
+
+                    <span class="date">
+                        30 August 2026
+                    </span>
+
+                    <h3>
+                        Future of Artificial Intelligence
+                    </h3>
+
+                    <p>
+                        Artificial Intelligence is transforming
+                        industries such as healthcare, finance,
+                        education, and transportation. AI-powered
+                        tools are making everyday work faster,
+                        smarter, and more efficient.
+                    </p>
+
+                    <a
+                        href="article.html?id=ai-future-2"
+                        class="read-btn">
+
+                        Read More
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <center>
+        <div class="load-more">
+
+            <button
+                id="loadMore"
+                class="btn"
+                type="button">
+
+                <i class="fa-solid fa-plus"></i>
+                Load More
+
+            </button>
+
+        </div>
+        </center>
+
+    </section>
+<section class="newsletter">
+
+    <div class="newsletter-content">
+
+        <h2>
+            Subscribe to Our Newsletter
+        </h2>
+
+            <p>
+                Get the latest blog articles, technology news,
+                travel stories, and lifestyle updates directly
+                in your inbox.
+            </p>
+
+
+            <form id="newsletterForm">
+
+                <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Enter your Email"
+                    aria-label="Email address"
+                    required>
+
+                <button
+                    type="submit">
+
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Subscribe
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+    <footer>
+
+        <div class="footer-container">
+            <div class="footer-box">
+
+                <h3>
+                    MyBlog
+                </h3>
+
+                <p>
+                    We share informative and interesting blog
+                    articles about technology, education, travel,
+                    programming, health, lifestyle, business,
+                    and many more useful topics.
+                </p>
+
+            </div>
+            <div class="footer-box">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="web.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html">
+                            Categories
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="admin-login.html">
+                            Admin
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="footer-box">
+
+                <h3>
+                    Categories
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="categories.html?category=Technology">
+                            Technology
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html?category=Programming">
+                            Programming
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html?category=Travel">
+                            Travel
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categories.html?category=Health">
+                            Health
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="footer-box">
+
+                <h3>
+                    Follow Us
+                </h3>
+
+                <div class="social-icons">
+
+                    <a
+                        href="https://www.facebook.com/"
+                        aria-label="Facebook">
+
+                        <i class="fab fa-facebook-f"></i>
+
+                    </a>
+
+                    <a
+                        href=https://www.instagram.com/?hl=en
+                        aria-label="Instagram">
+
+                        <i class="fab fa-instagram"></i>
+
+                    </a>
+
+                    <a
+                        href=https://x.com/
+                        aria-label="Twitter">
+
+                        <i class="fab fa-twitter"></i>
+
+                    </a>
+
+                    <a
+                        href=https://in.linkedin.com/
+                        aria-label="LinkedIn">
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    <div class="copyright">
+
+            <p>
+                © 2026 MyBlog | All Rights Reserved
+            </p>
+
+    </div>
+
+</footer>
+    <script src="we.js"></script>
+
+</body>
+
+</html>

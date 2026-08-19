@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Manager</title>
+<link rel="stylesheet" href="to do.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top">
+        <h1>Task Manager</h1>
+
+        <button id="themeBtn">🌙 Dark Mode</button>
+    </div>
+
+    <div class="form">
+
+        <input type="text" id="taskInput" placeholder="Enter task">
+
+        <select id="category">
+            <option>Work</option>
+            <option>Personal</option>
+            <option>Study</option>
+            <option>Other</option>
+        </select>
+
+        <select id="priority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+        </select>
+
+        <input type="date" id="dueDate">
+
+        <button onclick="addTask()">Add Task</button>
+
+    </div>
+
+    <div class="controls">
+
+        <input type="text" id="search" placeholder="Search Task">
+
+        <select id="filter">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+        </select>
+
+    </div>
+
+    <div class="stats">
+        <span id="completedCount">Completed: 0</span>
+        <span id="pendingCount">Pending: 0</span>
+    </div>
+
+    <ul id="taskList"></ul>
+
+</div>
+
+<script src="to do.js"></script>
+
+</body>
+</html>
