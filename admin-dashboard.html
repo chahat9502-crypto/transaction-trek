@@ -19,10 +19,6 @@
 
     <style>
 
-        /* =====================================================
-           RESET
-        ===================================================== */
-
         * {
             margin: 0;
             padding: 0;
@@ -54,22 +50,11 @@
             cursor: pointer;
         }
 
-
-        /* =====================================================
-           ADMIN PAGE
-        ===================================================== */
-
         .admin-page {
             min-height: 100vh;
             background: #f5f7fb;
             transition: background 0.3s ease;
         }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
         .admin-header {
             width: 100%;
             background: #111827;
@@ -114,11 +99,6 @@
             align-items: center;
             gap: 10px;
         }
-
-
-        /* =====================================================
-           BUTTONS
-        ===================================================== */
 
         .admin-btn {
             border: none;
@@ -186,11 +166,6 @@
             box-shadow: 0 5px 15px rgba(239, 68, 68, 0.30);
         }
 
-
-        /* =====================================================
-           CONTAINER
-        ===================================================== */
-
         .admin-container {
             width: 100%;
             max-width: 1200px;
@@ -199,12 +174,6 @@
 
             padding: 35px 20px 50px;
         }
-
-
-        /* =====================================================
-           TITLE
-        ===================================================== */
-
         .dashboard-title {
             margin-bottom: 28px;
         }
@@ -227,12 +196,6 @@
 
             font-size: 15px;
         }
-
-
-        /* =====================================================
-           STATS
-        ===================================================== */
-
         .stats-grid {
             display: grid;
 
@@ -315,11 +278,6 @@
             font-size: 14px;
         }
 
-
-        /* =====================================================
-           ARTICLES BOX
-        ===================================================== */
-
         .articles-box {
             width: 100%;
 
@@ -334,12 +292,6 @@
 
             transition: background 0.3s ease;
         }
-
-
-        /* =====================================================
-           ARTICLES HEADER
-        ===================================================== */
-
         .articles-header {
             padding: 20px;
 
@@ -360,12 +312,6 @@
 
             color: #111827;
         }
-
-
-        /* =====================================================
-           SEARCH
-        ===================================================== */
-
         .search-box {
             position: relative;
 
@@ -421,11 +367,6 @@
             box-shadow:
                 0 0 0 3px rgba(37, 99, 235, 0.10);
         }
-
-
-        /* =====================================================
-           TABLE
-        ===================================================== */
 
         .table-wrapper {
             width: 100%;
@@ -485,11 +426,6 @@
             background: #f9fafb;
         }
 
-
-        /* =====================================================
-           IMAGE
-        ===================================================== */
-
         .image-cell {
             width: 100px;
         }
@@ -510,11 +446,6 @@
             border: 1px solid #e5e7eb;
         }
 
-
-        /* =====================================================
-           TITLE
-        ===================================================== */
-
         .article-title {
             max-width: 280px;
 
@@ -524,12 +455,6 @@
 
             line-height: 1.4;
         }
-
-
-        /* =====================================================
-           CATEGORY
-        ===================================================== */
-
         .category-badge {
             display: inline-block;
 
@@ -547,11 +472,6 @@
 
             white-space: nowrap;
         }
-
-
-        /* =====================================================
-           ACTION BUTTONS
-        ===================================================== */
 
         .action-buttons {
             display: flex;
@@ -616,12 +536,6 @@
         .delete-btn:hover {
             background: #fee2e2;
         }
-
-
-        /* =====================================================
-           EMPTY STATE
-        ===================================================== */
-
         .empty-state {
             text-align: center;
 
@@ -656,11 +570,6 @@
 
             font-size: 14px;
         }
-
-
-        /* =====================================================
-           DARK MODE
-        ===================================================== */
 
         body.dark-mode {
             background: #0f172a;
@@ -795,11 +704,6 @@
             color: #64748b;
         }
 
-
-        /* =====================================================
-           RESPONSIVE - TABLET
-        ===================================================== */
-
         @media (max-width: 900px) {
 
             .stats-grid {
@@ -925,12 +829,6 @@
             }
 
         }
-
-
-        /* =====================================================
-           SMALL MOBILE
-        ===================================================== */
-
         @media (max-width: 400px) {
 
             .admin-container {
@@ -961,9 +859,6 @@
             }
 
         }
-        /* =====================================================
-   PREMIUM DARK MODE BUTTON
-===================================================== */
 
 .dark-btn {
     min-width: 110px;
@@ -1080,11 +975,6 @@ body.dark-mode .dark-btn i {
 <body>
 
 <div class="admin-page">
-
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
-
     <header class="admin-header">
 
         <div class="admin-logo">
@@ -1100,8 +990,6 @@ body.dark-mode .dark-btn i {
 
         <div class="admin-actions">
 
-            <!-- Add Article -->
-
             <a
                 href="add-article.html"
                 class="admin-btn add-btn">
@@ -1111,10 +999,6 @@ body.dark-mode .dark-btn i {
                 <span>Add Article</span>
 
             </a>
-
-
-            <!-- Dark Mode -->
-
             <button
                 type="button"
                 id="darkBtn"
@@ -1130,10 +1014,6 @@ body.dark-mode .dark-btn i {
                 </span>
 
             </button>
-
-
-            <!-- Logout -->
-
             <button
                 type="button"
                 class="admin-btn logout-btn"
@@ -1149,15 +1029,7 @@ body.dark-mode .dark-btn i {
 
     </header>
 
-
-    <!-- =====================================================
-         MAIN
-    ===================================================== -->
-
     <main class="admin-container">
-
-
-        <!-- TITLE -->
 
         <div class="dashboard-title">
 
@@ -1170,17 +1042,7 @@ body.dark-mode .dark-btn i {
             </p>
 
         </div>
-
-
-        <!-- =================================================
-             STATISTICS
-        ================================================= -->
-
         <div class="stats-grid">
-
-
-            <!-- TOTAL ARTICLES -->
-
             <div class="stat-card">
 
                 <div class="stat-icon">
@@ -1203,10 +1065,6 @@ body.dark-mode .dark-btn i {
                 </div>
 
             </div>
-
-
-            <!-- CATEGORIES -->
-
             <div class="stat-card">
 
                 <div class="stat-icon">
@@ -1229,9 +1087,6 @@ body.dark-mode .dark-btn i {
                 </div>
 
             </div>
-
-
-            <!-- ADMIN ARTICLES -->
 
             <div class="stat-card">
 
@@ -1259,15 +1114,7 @@ body.dark-mode .dark-btn i {
 
         </div>
 
-
-        <!-- =================================================
-             ARTICLES
-        ================================================= -->
-
         <section class="articles-box">
-
-
-            <!-- ARTICLES HEADER -->
 
             <div class="articles-header">
 
@@ -1332,10 +1179,6 @@ body.dark-mode .dark-btn i {
                 </table>
 
             </div>
-
-
-            <!-- EMPTY -->
-
             <div
                 id="emptyState"
                 class="empty-state"
@@ -1361,22 +1204,12 @@ body.dark-mode .dark-btn i {
 
 </div>
 
-
-<!-- =====================================================
-     MAIN JS
-===================================================== -->
-
 <script src="we.js"></script>
 
 
 <script>
 
 "use strict";
-
-
-/* =========================================================
-   DOM READY
-========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -1395,34 +1228,12 @@ document.addEventListener(
     }
 );
 
-
-/* =========================================================
-   ADMIN LOGIN CHECK
-========================================================= */
-
 function setupAdminLogin() {
-
-    /*
-       Agar aapke admin-login.html me
-       localStorage key use ho rahi hai,
-       to dashboard protected rahega.
-
-       Agar testing ke time login check nahi chahiye
-       to is function ko comment kar sakte ho.
-    */
 
     const loggedIn =
         localStorage.getItem(
             "myBlogAdminLoggedIn"
         );
-
-
-    /*
-       Only redirect when value is explicitly false.
-
-       Isse existing dashboard directly open karne par
-       unnecessary problem nahi hogi.
-    */
 
     if (
         loggedIn === "false"
@@ -1434,12 +1245,6 @@ function setupAdminLogin() {
     }
 
 }
-
-
-/* =========================================================
-   IMAGE NORMALIZER
-========================================================= */
-
 function normalizeAdminImage(image) {
 
     if (
@@ -1455,18 +1260,8 @@ function normalizeAdminImage(image) {
     let path =
         String(image).trim();
 
-
-    /*
-       Windows path ko web path me convert
-    */
-
     path =
         path.replace(/\\/g, "/");
-
-
-    /*
-       Agar path ke andar /image/ hai
-    */
 
     const imageIndex =
         path
@@ -1484,12 +1279,6 @@ function normalizeAdminImage(image) {
             );
 
     }
-
-
-    /*
-       image/ se start
-    */
-
     if (
         path
             .toLowerCase()
@@ -1499,11 +1288,6 @@ function normalizeAdminImage(image) {
         return path;
 
     }
-
-
-    /*
-       Online image
-    */
 
     if (
         path.startsWith("http://") ||
@@ -1519,11 +1303,6 @@ function normalizeAdminImage(image) {
     return path;
 
 }
-
-
-/* =========================================================
-   GET ARTICLES
-========================================================= */
 
 function getDashboardArticles() {
 
@@ -1570,12 +1349,6 @@ function getDashboardArticles() {
     }
 
 }
-
-
-/* =========================================================
-   SAVE ARTICLES
-========================================================= */
-
 function saveDashboardArticles(
     articles
 ) {
@@ -1607,20 +1380,10 @@ function saveDashboardArticles(
 
 }
 
-
-/* =========================================================
-   LOAD DASHBOARD
-========================================================= */
-
 function loadAdminDashboard() {
 
     const articles =
         getDashboardArticles();
-
-
-    /*
-       Total Articles
-    */
 
     const totalArticles =
         document.getElementById(
@@ -1634,12 +1397,6 @@ function loadAdminDashboard() {
             articles.length;
 
     }
-
-
-    /*
-       Categories
-    */
-
     const categories =
         new Set();
 
@@ -1678,11 +1435,6 @@ function loadAdminDashboard() {
 
     }
 
-
-    /*
-       Admin Added
-    */
-
     const adminCount =
         articles.filter(
             function (article) {
@@ -1709,21 +1461,11 @@ function loadAdminDashboard() {
 
     }
 
-
-    /*
-       Render articles
-    */
-
     renderAdminArticles(
         articles
     );
 
 }
-
-
-/* =========================================================
-   RENDER ARTICLES
-========================================================= */
 
 function renderAdminArticles(
     articles
@@ -1750,11 +1492,6 @@ function renderAdminArticles(
 
     tbody.innerHTML = "";
 
-
-    /*
-       No articles
-    */
-
     if (
         !Array.isArray(articles) ||
         articles.length === 0
@@ -1778,12 +1515,6 @@ function renderAdminArticles(
             "none";
 
     }
-
-
-    /*
-       Create rows
-    */
-
     articles.forEach(
         function (article) {
 
@@ -1791,13 +1522,6 @@ function renderAdminArticles(
                 document.createElement(
                     "tr"
                 );
-
-
-            /*
-               Data
-            */
-
-            const image =
                 normalizeAdminImage(
                     article.image
                 );
@@ -1822,11 +1546,6 @@ function renderAdminArticles(
                 String(
                     article.id || ""
                 );
-
-
-            /*
-               IMAGE CELL
-            */
 
             const imageCell =
                 document.createElement(
@@ -1875,12 +1594,6 @@ function renderAdminArticles(
             imageCell.appendChild(
                 img
             );
-
-
-            /*
-               TITLE CELL
-            */
-
             const titleCell =
                 document.createElement(
                     "td"
@@ -1904,12 +1617,6 @@ function renderAdminArticles(
             titleCell.appendChild(
                 titleDiv
             );
-
-
-            /*
-               CATEGORY CELL
-            */
-
             const categoryCell =
                 document.createElement(
                     "td"
@@ -1934,11 +1641,6 @@ function renderAdminArticles(
                 categoryBadge
             );
 
-
-            /*
-               DATE CELL
-            */
-
             const dateCell =
                 document.createElement(
                     "td"
@@ -1947,12 +1649,6 @@ function renderAdminArticles(
 
             dateCell.textContent =
                 date;
-
-
-            /*
-               ACTION CELL
-            */
-
             const actionCell =
                 document.createElement(
                     "td"
@@ -1967,12 +1663,6 @@ function renderAdminArticles(
 
             actionButtons.className =
                 "action-buttons";
-
-
-            /*
-               VIEW
-            */
-
             const viewButton =
                 createActionButton(
                     "view-btn",
@@ -1992,11 +1682,6 @@ function renderAdminArticles(
                 }
             );
 
-
-            /*
-               EDIT
-            */
-
             const editButton =
                 createActionButton(
                     "edit-btn",
@@ -2015,11 +1700,6 @@ function renderAdminArticles(
 
                 }
             );
-
-
-            /*
-               DELETE
-            */
 
             const deleteButton =
                 createActionButton(
@@ -2060,11 +1740,6 @@ function renderAdminArticles(
                 actionButtons
             );
 
-
-            /*
-               Add all cells
-            */
-
             row.appendChild(
                 imageCell
             );
@@ -2098,12 +1773,6 @@ function renderAdminArticles(
     );
 
 }
-
-
-/* =========================================================
-   CREATE ACTION BUTTON
-========================================================= */
-
 function createActionButton(
     className,
     iconName,
@@ -2148,12 +1817,6 @@ function createActionButton(
     return button;
 
 }
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
 function setupDashboardSearch() {
 
     const search =
@@ -2182,11 +1845,6 @@ function setupDashboardSearch() {
             const articles =
                 getDashboardArticles();
 
-
-            /*
-               Empty search
-            */
-
             if (!keyword) {
 
                 renderAdminArticles(
@@ -2196,11 +1854,7 @@ function setupDashboardSearch() {
                 return;
 
             }
-
-
-            /*
-               Filter
-            */
+        
 
             const filtered =
                 articles.filter(
@@ -2253,12 +1907,6 @@ function setupDashboardSearch() {
     );
 
 }
-
-
-/* =========================================================
-   VIEW ARTICLE
-========================================================= */
-
 function dashboardViewArticle(
     id
 ) {
@@ -2286,11 +1934,6 @@ function dashboardViewArticle(
 
 }
 
-
-/* =========================================================
-   EDIT ARTICLE
-========================================================= */
-
 function dashboardEditArticle(
     id
 ) {
@@ -2316,11 +1959,6 @@ function dashboardEditArticle(
         "add-article.html";
 
 }
-
-
-/* =========================================================
-   DELETE ARTICLE
-========================================================= */
 
 function dashboardDeleteArticle(
     id
@@ -2406,11 +2044,6 @@ function dashboardDeleteArticle(
 
 }
 
-
-/* =========================================================
-   LOGOUT
-========================================================= */
-
 function setupLogout() {
 
     const logoutBtn =
@@ -2468,12 +2101,6 @@ function adminLogout() {
         "admin-login.html";
 
 }
-
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
 function setupDashboardDarkMode() {
 
     const darkBtn =
@@ -2492,12 +2119,6 @@ function setupDashboardDarkMode() {
         document.getElementById(
             "darkText"
         );
-
-
-    /*
-       Read saved mode
-    */
-
     const saved =
         localStorage.getItem(
             "myBlogDarkMode"
